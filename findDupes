@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int m = size(nums);
+        
+        int temp[m];
+        for(int i =0;i<m;i++){
+            temp[i]=0;
+        }
+        for(int i =0;i<m;i++){
+            temp[nums[i]]++;
+        }
+        int max=temp[0];
+        int maxc;
+        for(int i=1;i<m;i++){
+            if(temp[i] > max){
+                max = temp[i];
+                maxc = i;
+            }
+        }
+        return  maxc;
+    }
+};
